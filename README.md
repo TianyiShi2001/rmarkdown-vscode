@@ -1,8 +1,6 @@
 # R Markdown for VS Code
 
-This extension provides a few snippets and key bindings for common tasks in `.Rmd` documents, such as inserting code chunks and including images using `knitr::include_graphics()`[^include_graphics].
-
-[^include_graphics]: In R Markdown, `knitr::include_graphics()` is [preferred over](http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/#more-functionality-from-include_graphics) Markdown's native `![alt](uri)` syntax
+This extension provides a few snippets and key bindings for common tasks in `.Rmd` documents, such as inserting code chunks and including images using `knitr::include_graphics()` (which is [preferred over](http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/#more-functionality-from-include_graphics) Markdown's native `![]()` syntax, but rather verbose).
 
 ## Features
 
@@ -34,6 +32,7 @@ Key bindings are mostly consistent with RStudio.
 - general
   - use some `.md` -specific services
   - Keyboard shortcut for "Knit"
+    - `Rscript -e 'rmarkdown::render('$filename', 'all')'`
   - insert tables (with labels and captions)
 - bookdown support
 - blogdown support
