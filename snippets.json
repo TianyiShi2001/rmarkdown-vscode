@@ -1,0 +1,32 @@
+{
+  "insert_code_chunk": {
+    "prefix": "\\code",
+    "body": ["```{r$1}", "$2", "```\n", "$0"],
+    "description": "insert a code chunk, default to R language"
+  },
+  "include_graphics": {
+    "prefix": "\\fig",
+    "body": ["```{r ${1:<label>}, echo='FALSE', out.width='${2:100}%', fig.cap='$3'}", "knitr::include_graphics('$4')", "```\n", "$5"],
+    "description": "use `knitr::include_graphics()` to insert an image"
+  },
+  "general_reference": {
+    "prefix": "\\ref",
+    "body": ["\\@ref($1) $0"],
+    "description": "general reference; inserts '`\\@ref()`'"
+  },
+  "section reference": {
+    "prefix": "\\refsec",
+    "body": ["Section \\@ref($1) $0"],
+    "description": "section reference; inserts 'Section `\\@ref()`'"
+  },
+  "figure reference": {
+    "prefix": "\\reffig",
+    "body": ["Figure \\@ref(fig:$1) $0"],
+    "description": "figure reference; inserts 'Figure `\\@ref(fig:)`'"
+  },
+  "table reference": {
+    "prefix": "\\reftab",
+    "body": ["Table \\@tab($1) $0"],
+    "description": "table reference; inserts 'Table `\\@ref(tab:)`'"
+  }
+}
