@@ -8,19 +8,20 @@ This extension provides a few snippets and key bindings for common tasks in `.Rm
 
 Key bindings are mostly consistent with RStudio.
 
-|    Description    |   Windows    |      Mac       |                                       Note                                       |
-| :---------------: | :----------: | :------------: | :------------------------------------------------------------------------------: |
-| Insert Code Chunk | `Ctrl+Alt+I` | `Cmd+Option+I` | The first tab stop allows for easy configuration, the second for the actual code |
+|    Description    | Windows/Linux  |      Mac       |                                       Note                                       |
+| :---------------: | :------------: | :------------: | :------------------------------------------------------------------------------: |
+| Insert Code Chunk |  `Ctrl+Alt+I`  | `Cmd+Option+I` | The first tab stop allows for easy configuration, the second for the actual code |
+|       Knit        | `Ctrl+Shift+K` | `Cmd+Shift+K`  |   Knit current `.Rmd` document with options specified in the YAML frontmatter    |
 
 ### Snippets
 
 
 #### Cross-referencing
 
-`\ref`: general cross-reference; inserts `\@ref($1)`    
-`\refsec`: section cross-reference; inserts `Section \@ref($1)`    
-`\reffig`: figure cross-reference; inserts `Figure \@ref(fig:$1)`    
-`\reftab`: table cross-reference; inserts `Table \@ref(tab:$1)`    
+`\ref` or `\@ref`: general cross-reference; inserts `\@ref($1)`    
+`\refsec` or `\@sec`: section cross-reference; inserts `Section \@ref($1)`    
+`\reffig` or `\@fig`: figure cross-reference; inserts `Figure \@ref(fig:$1)`    
+`\reftab` or `\@tab`: table cross-reference; inserts `Table \@ref(tab:$1)`    
 
 #### Chunks
 
@@ -31,12 +32,16 @@ Key bindings are mostly consistent with RStudio.
 
 - general
   - use some `.md` -specific services
-  - Keyboard shortcut for "Knit"
     - `Rscript -e 'rmarkdown::render('$filename', 'all')'`
   - insert tables (with labels and captions)
+  - citation autocompletion
 - bookdown support
 - blogdown support
   - new post snippet (c.f. psql)
+
+## Change Log
+
+See [CHANGELOG.md](./CHANGELOG.md)
 
 
 <!-- ## Requirements

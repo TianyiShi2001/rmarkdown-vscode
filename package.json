@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/TianyiShi2001/rmarkdown-vscode.git"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.44.0"
   },
@@ -52,6 +52,18 @@
         "args": {
           "name": "insert_code_chunk"
         }
+      },
+      {
+        "command": "rmarkdown.knit",
+        "key": "ctrl+shift+k",
+        "mac": "cmd+shift+k",
+        "when": "editorTextFocus"
+      }
+    ],
+    "commands": [
+      {
+        "command": "rmarkdown.knit",
+        "title": "Knit"
       }
     ]
   },

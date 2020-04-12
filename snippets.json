@@ -14,18 +14,38 @@
     "body": ["\\@ref($1) $0"],
     "description": "general reference; inserts '`\\@ref()`'"
   },
-  "section reference": {
+  "general_reference_alias": {
+    "prefix": "\\@ref",
+    "body": ["\\@ref($1) $0"],
+    "description": "general reference; inserts '`\\@ref()`'"
+  },
+  "section_reference": {
     "prefix": "\\refsec",
     "body": ["Section \\@ref($1) $0"],
     "description": "section reference; inserts 'Section `\\@ref()`'"
   },
-  "figure reference": {
+  "section_reference_alias": {
+    "prefix": "\\@sec",
+    "body": ["Section \\@ref($1) $0"],
+    "description": "section reference; inserts 'Section `\\@ref()`'"
+  },
+  "figure_reference": {
     "prefix": "\\reffig",
     "body": ["Figure \\@ref(fig:$1) $0"],
     "description": "figure reference; inserts 'Figure `\\@ref(fig:)`'"
   },
-  "table reference": {
+  "figure_reference_alias": {
+    "prefix": "\\@fig",
+    "body": ["Figure \\@ref(fig:$1) $0"],
+    "description": "figure reference; inserts 'Figure `\\@ref(fig:)`'"
+  },
+  "table_reference": {
     "prefix": "\\reftab",
+    "body": ["Table \\@tab($1) $0"],
+    "description": "table reference; inserts 'Table `\\@ref(tab:)`'"
+  },
+  "table_reference_alias": {
+    "prefix": "\\@tab",
     "body": ["Table \\@tab($1) $0"],
     "description": "table reference; inserts 'Table `\\@ref(tab:)`'"
   }
