@@ -1,10 +1,11 @@
 import { basename, dirname } from "path";
 import * as vscode from "vscode";
 import { spawn } from "child_process";
+//import { render, renderSync } from "rmarkdown";
 
 export class Rmarkdown {
   private _outputChannel: vscode.OutputChannel;
-  // private _fullpath?: string;
+  private _fullpath?: string;
   private _filename?: string;
   private _dirname?: string;
   constructor() {
@@ -24,8 +25,8 @@ export class Rmarkdown {
     });
   }
   private _initialize(): void {
-    const currentFile = vscode.window.activeTextEditor!.document.fileName;
-    this._filename = basename(currentFile);
-    this._dirname = dirname(currentFile);
+    this._fullpath = vscode.window.activeTextEditor!.document.fileName;
+    this._filename = basename(this._fullpath);
+    this._dirname = dirname(this._fullpath);
   }
 }

@@ -2,16 +2,28 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { Rmarkdown } from "./rmarkdown";
+import * as decorations from "./decorations";
+import * as listEditing from "./listEditing";
+import * as formatting from "./formatting";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  console.log("rmarkdown extension activated");
+
+  decorations.activate(context);
+  listEditing.activate(context);
+  formatting.activate(context);
+
   let rmd = new Rmarkdown();
   context.subscriptions.push(
-    vscode.commands.registerCommand("rmarkdown.knit", () => {
+    vscode.commands.registerCommand("rmarkdown_vscode.knit", () => {
       rmd.knit();
     })
   );
+  vscode.languages.setLanguageConfiguration("rmarkdown", {
+    wordPattern: /(-?\d*\.\d\w*)|([^\!\@\#\%\^\&\(\)\-\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\?\s\，\。\《\》\？\；\：\‘\“\’\”\（\）\【\】\、]+)/g,
+  });
 }
 
 // this method is called when your extension is deactivated
