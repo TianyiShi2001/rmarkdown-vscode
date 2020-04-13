@@ -4,7 +4,7 @@ This extension provides a few snippets and key bindings for common tasks in `.Rm
 
 ## Video Demos
 
-_If you prefer reading text, jump to [RMarkdown-Specific Features from here](user-content-rmarkdown-specific-features)._
+_If you prefer reading text, jump to [RMarkdown-Specific Features from here](#user-content-rmarkdown-specific-features)._
 
 ### Code Chunk
 
