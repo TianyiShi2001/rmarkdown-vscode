@@ -63,30 +63,30 @@
         "command": "rmarkdown_vscode.editing.toggleBold",
         "key": "ctrl+b",
         "mac": "cmd+b",
-        "when": "editorTextFocus && !editorReadonly && editorLangId === rmarkdown"
+        "when": "editorTextFocus && !editorReadonly && editorLangId == rmarkdown"
       },
       {
         "command": "rmarkdown_vscode.editing.toggleItalic",
         "key": "ctrl+i",
         "mac": "cmd+i",
-        "when": "editorTextFocus && !editorReadonly && editorLangId === rmarkdown"
+        "when": "editorTextFocus && !editorReadonly && editorLangId == rmarkdown"
       },
       {
         "command": "rmarkdown_vscode.editing.toggleStrikethrough",
         "key": "alt+s",
-        "when": "editorTextFocus && !editorReadonly && editorLangId === rmarkdown && !isMac"
+        "when": "editorTextFocus && !editorReadonly && editorLangId == rmarkdown && !isMac"
       },
       {
         "command": "rmarkdown_vscode.editing.toggleHeadingUp",
         "key": "ctrl+shift+]",
         "mac": "ctrl+shift+]",
-        "when": "editorTextFocus && !editorReadonly && editorLangId === rmarkdown"
+        "when": "editorTextFocus && !editorReadonly && editorLangId == rmarkdown"
       },
       {
         "command": "rmarkdown_vscode.editing.toggleHeadingDown",
         "key": "ctrl+shift+[",
         "mac": "ctrl+shift+[",
-        "when": "editorTextFocus && !editorReadonly && editorLangId === rmarkdown"
+        "when": "editorTextFocus && !editorReadonly && editorLangId == rmarkdown"
       }
     ],
     "commands": [
