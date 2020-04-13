@@ -1,6 +1,29 @@
-# R Markdown for VS Code
+# R Markdown All-in-One for VS Code
 
 This extension provides a few snippets and key bindings for common tasks in `.Rmd` documents, such as inserting code chunks and including images using `knitr::include_graphics()`.
+
+Additionally, it aims to provide some helper functions for Bookdown and Blogdown.
+
+# Table of Contents
+
+- [R Markdown All-in-One for VS Code](#r-markdown-all-in-one-for-vs-code)
+- [Table of Contents](#table-of-contents)
+  - [Video Demos](#video-demos)
+    - [Code Chunk](#code-chunk)
+    - [Include Graphics](#include-graphics)
+    - [Knitting](#knitting)
+  - [RMarkdown-Specific Features](#rmarkdown-specific-features)
+    - [Keyboard Shortcuts:](#keyboard-shortcuts)
+    - [Snippets](#snippets)
+      - [Cross-referencing](#cross-referencing)
+      - [Chunks](#chunks)
+  - [Blogdown-Specific Features](#blogdown-specific-features)
+    - [New Post](#new-post)
+  - [Other Markdown Features](#other-markdown-features)
+    - [Syntax Highlighting](#syntax-highlighting)
+    - [Keyboard Shortcuts](#keyboard-shortcuts-1)
+  - [TODO](#todo)
+  - [Change Log](#change-log)
 
 ## Video Demos
 
@@ -8,7 +31,7 @@ _If you prefer reading text, jump to [RMarkdown-Specific Features from here](#us
 
 ### Code Chunk
 
-As you would do in RStudio, you can use `Ctrl/Cmd+Alt+I` to insert a code chunk. The language deafaults to R, but you can use [many other langauges](https://bookdown.org/yihui/rmarkdown/language-engines.html).
+As you would do in RStudio, you can use `Ctrl/Cmd+Alt+I` to insert a code chunk (alternatively, you can write `\code` to trigger this snippet). The language defaults to R, but you can also use [many other langauges](https://bookdown.org/yihui/rmarkdown/language-engines.html) supported by [**knitr**](https://yihui.org/knitr/).
 
 ![insert code chunk demo](./images/demo/code.gif)
 
@@ -51,6 +74,17 @@ Use `Ctrl/Cmd+Shift+K` to knit the document with options specified in the YAML h
 `\code`: insert a code chunk
 `\fig`: insert a chunk using `knitr::include_graphics()` to include an image; hit tabs to conviniently fill out label, `fig.cap` and `out.width`.
 
+## Blogdown-Specific Features
+
+### New Post
+
+1. In VS Code, open a **blogdown** project that contains at least an `archetype/` directory with at least one archetype file, and an `content/` directory with at least one subdirectory.
+2. In the command palette (`Ctrl/Cmd+Shift+P`), search for `new post`
+3. Execute `Blogdown: New Post`, then fill out basic information (title, author, category, archetype)
+4. You are redirected to your new post!
+
+![blogdown new post demo](images/demo/blogdown/newpost.gif)
+
 ## Other Markdown Features
 
 ### Syntax Highlighting
@@ -61,10 +95,10 @@ Mostly adapted from [microsoft/vscode](https://github.com/microsoft/vscode/tree/
 
 Mostly adapted from [yzhang-gh/vscode-markdown](https://github.com/yzhang-gh/vscode-markdown).
 
-|  Description   | Windows/Linux |    Mac    | Note |
-| :------------: | :-----------: | :-------: | :--: |
-|  toggle bold   |  `Ctrl + B`   | `Cmd + B` |      |
-| toggle italics |  `Ctrl + I`   | `Cmd + I` |      |
+|  Description   | Windows/Linux |    Mac    | Note  |
+| :------------: | :-----------: | :-------: | :---: |
+|  toggle bold   |  `Ctrl + B`   | `Cmd + B` |       |
+| toggle italics |  `Ctrl + I`   | `Cmd + I` |       |
 
 ## TODO
 

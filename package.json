@@ -5,14 +5,14 @@
     "name": "Tianyi Shi"
   },
   "icon": "images/icon.png",
-  "displayName": "R Markdown",
-  "description": "R Markdown Support",
+  "displayName": "R Markdown All in One",
+  "description": "R Markdown, Bookdown and Blogdown Support",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/TianyiShi2001/rmarkdown-vscode.git"
   },
-  "version": "0.0.4",
+  "version": "0.0.5",
   "engines": {
     "vscode": "^1.44.0"
   },
@@ -20,7 +20,8 @@
     "Snippets"
   ],
   "activationEvents": [
-    "onLanguage:rmarkdown"
+    "onLanguage:rmarkdown",
+    "onCommand:rmarkdown_vscode.blogdown.newPost"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -93,6 +94,10 @@
       {
         "command": "rmarkdown_vscode.knit",
         "title": "Knit"
+      },
+      {
+        "command": "rmarkdown_vscode.blogdown.newPost",
+        "title": "Blogdown: New Post"
       }
     ],
     "grammars": [

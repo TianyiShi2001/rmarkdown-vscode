@@ -25,3 +25,9 @@ All notable changes to the "rmarkdown" extension will be documented in this file
 
 - added a Python script to convert markdown's `tmLanguage.json` to rmarkdown's
   - R code chunks (with curly braces after ` ``` `) are now highlighted properly
+
+## [0.0.5] - 2020-04-14
+
+### Added
+
+- Blogdown New Post Helper (command palette `New Post`)

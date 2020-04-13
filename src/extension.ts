@@ -5,6 +5,7 @@ import { Rmarkdown } from "./rmarkdown";
 import * as decorations from "./decorations";
 import * as listEditing from "./listEditing";
 import * as formatting from "./formatting";
+import { newPostCommand } from "./blogdown/newPost";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -14,6 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
   decorations.activate(context);
   listEditing.activate(context);
   formatting.activate(context);
+  new newPostCommand(context);
 
   let rmd = new Rmarkdown();
   context.subscriptions.push(
