@@ -1,6 +1,32 @@
 # R Markdown for VS Code
 
-This extension provides a few snippets and key bindings for common tasks in `.Rmd` documents, such as inserting code chunks and including images using `knitr::include_graphics()` (which is [preferred over](http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/#more-functionality-from-include_graphics) Markdown's native `![]()` syntax, but rather verbose).
+This extension provides a few snippets and key bindings for common tasks in `.Rmd` documents, such as inserting code chunks and including images using `knitr::include_graphics()`.
+
+## Video Demos
+
+_If you prefer reading text, jump to [RMarkdown-Specific Features from here](user-content-rmarkdown-specific-features)._
+
+### Code Chunk
+
+As you would do in RStudio, you can use `Ctrl/Cmd+Alt+I` to insert a code chunk. The language deafaults to R, but you can use [many other langauges](https://bookdown.org/yihui/rmarkdown/language-engines.html).
+
+![insert code chunk demo](./images/demo/code.gif)
+
+The first tab stop allows you to configure this code chunk (language, label, `eval`, `echo`, etc.), and the second one is where you write the code. The third tab stop inserts a blank line between after the code chunk, which is required by the `.Rmd` format.
+
+### Include Graphics
+
+In the world of R Markdown, `knitr::include_graphics()` is [the preferred way of inserting images over](http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/#more-functionality-from-include_graphics) Markdown's native `![]()` syntax. If you don't know it, you should. Its syntax, however, is rather verbose.
+
+With VSCode RMarkdown extension, you use the `\fig` snippet.
+
+![include graphics demo](./images/demo/fig.gif)
+
+### Knitting
+
+Use `Ctrl/Cmd+Shift+K` to knit the document with options specified in the YAML header, like in RStudio.
+
+![knitting demo](./images/demo/knit.gif)
 
 ## RMarkdown-Specific Features
 

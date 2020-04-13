@@ -17,4 +17,11 @@ All notable changes to the "rmarkdown" extension will be documented in this file
 
 ### Added
 
-- Adapted some functions from [microsoft/vscode](https://github.com/microsoft/vscode/tree/master/extensions/markdown-language-features) and [yzhang-gh/vscode-markdown](https://github.com/yzhang-gh/vscode-markdown), especially syntax highlighting and key bindings for bold/itatic toggling.
+- adapted some functions from [microsoft/vscode](https://github.com/microsoft/vscode/tree/master/extensions/markdown-language-features) and [yzhang-gh/vscode-markdown](https://github.com/yzhang-gh/vscode-markdown), especially syntax highlighting and key bindings for bold/itatic toggling.
+
+## [0.0.4] - 2020-04-13
+
+### Added
+
+- added a Python script to convert markdown's `tmLanguage.json` to rmarkdown's
+  - R code chunks (with curly braces after ` ``` `) are now highlighted properly
