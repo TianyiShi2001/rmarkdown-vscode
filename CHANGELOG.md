@@ -17,4 +17,4 @@ All notable changes to the "rmarkdown" extension will be documented in this file
 
 ### Added
 
-- Syntax highlighting (adapted from [microsoft/vscode](https://github.com/microsoft/vscode/tree/master/extensions/markdown-language-features) and [yzhang-gh/vscode-markdown](https://github.com/yzhang-gh/vscode-markdown)).
+- Adapted some functions from [microsoft/vscode](https://github.com/microsoft/vscode/tree/master/extensions/markdown-language-features) and [yzhang-gh/vscode-markdown](https://github.com/yzhang-gh/vscode-markdown), especially syntax highlighting and key bindings for bold/itatic toggling.

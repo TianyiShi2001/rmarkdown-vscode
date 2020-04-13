@@ -7,14 +7,10 @@ export function activate(context: ExtensionContext) {
   context.subscriptions.push(
     commands.registerCommand("rmarkdown_vscode.editing.toggleBold", toggleBold),
     commands.registerCommand("rmarkdown_vscode.editing.toggleItalic", toggleItalic),
-    commands.registerCommand("rmarkdown_vscode.editing.toggleCodeSpan", toggleCodeSpan),
     commands.registerCommand("rmarkdown_vscode.editing.toggleStrikethrough", toggleStrikethrough),
-    commands.registerCommand("rmarkdown_vscode.editing.toggleMath", () => toggleMath(transTable)),
-    commands.registerCommand("rmarkdown_vscode.editing.toggleMathReverse", () => toggleMath(reverseTransTable)),
     commands.registerCommand("rmarkdown_vscode.editing.toggleHeadingUp", toggleHeadingUp),
     commands.registerCommand("rmarkdown_vscode.editing.toggleHeadingDown", toggleHeadingDown),
     commands.registerCommand("rmarkdown_vscode.editing.toggleList", toggleList),
-    commands.registerCommand("rmarkdown_vscode.editing.toggleCodeBlock", toggleCodeBlock),
     commands.registerCommand("rmarkdown_vscode.editing.paste", paste)
   );
 }
@@ -31,17 +27,7 @@ function toggleBold() {
 }
 
 function toggleItalic() {
-  let indicator = workspace.getConfiguration("rmarkdown_vscode.italic").get<string>("indicator");
-  return styleByWrapping(indicator);
-}
-
-function toggleCodeSpan() {
-  return styleByWrapping("`");
-}
-
-function toggleCodeBlock() {
-  let editor = window.activeTextEditor;
-  return editor.insertSnippet(new SnippetString("```$0\n$TM_SELECTED_TEXT\n```"));
+  return styleByWrapping("_");
 }
 
 function toggleStrikethrough() {
@@ -49,7 +35,7 @@ function toggleStrikethrough() {
 }
 
 async function toggleHeadingUp() {
-  let editor = window.activeTextEditor;
+  let editor = window.activeTextEditor!;
   let lineIndex = editor.selection.active.line;
   let lineText = editor.document.lineAt(lineIndex).text;
 
@@ -65,7 +51,7 @@ async function toggleHeadingUp() {
 }
 
 function toggleHeadingDown() {
-  let editor = window.activeTextEditor;
+  let editor = window.activeTextEditor!;
   let lineIndex = editor.selection.active.line;
   let lineText = editor.document.lineAt(lineIndex).text;
 
@@ -182,18 +168,8 @@ function setMathState(editor: TextEditor, cursor: Position, oldMathBlockState: M
 const transTable = [MathBlockState.NONE, MathBlockState.INLINE, MathBlockState.MULTI_DISPLAYED, MathBlockState.SINGLE_DISPLAYED];
 const reverseTransTable = new Array(...transTable).reverse();
 
-function toggleMath(transTable) {
-  let editor = window.activeTextEditor;
-  if (!editor.selection.isEmpty) return;
-  let cursor = editor.selection.active;
-
-  let oldMathBlockState = getMathState(editor, cursor);
-  let currentStateIndex = transTable.indexOf(oldMathBlockState);
-  setMathState(editor, cursor, oldMathBlockState, transTable[(currentStateIndex + 1) % transTable.length]);
-}
-
 function toggleList() {
-  const editor = window.activeTextEditor;
+  const editor = window.activeTextEditor!;
   const doc = editor.document;
   let batchEdit = new WorkspaceEdit();
 
@@ -231,7 +207,7 @@ function toggleListSingleLine(doc: TextDocument, line: number, wsEdit: Workspace
 }
 
 async function paste() {
-  const editor = window.activeTextEditor;
+  const editor = window.activeTextEditor!;
   const selection = editor.selection;
   if (selection.isSingleLine && !isSingleLink(editor.document.getText(selection))) {
     const text = await env.clipboard.readText();
@@ -300,12 +276,12 @@ export function isSingleLink(text: string): boolean {
   return singleLinkRegex.test(text);
 }
 
-function styleByWrapping(startPattern, endPattern?) {
-  if (endPattern == undefined) {
+function styleByWrapping(startPattern: string, endPattern?: string) {
+  if (endPattern === undefined) {
     endPattern = startPattern;
   }
 
-  let editor = window.activeTextEditor;
+  let editor = window.activeTextEditor!;
   let selections = editor.selections;
 
   let batchEdit = new WorkspaceEdit();
@@ -314,30 +290,30 @@ function styleByWrapping(startPattern, endPattern?) {
 
   selections.forEach((selection, i) => {
     let cursorPos = selection.active;
-    const shift = shifts.map(([pos, s]) => (selection.start.line == pos.line && selection.start.character >= pos.character ? s : 0)).reduce((a, b) => a + b, 0);
+    const shift = shifts.map(([pos, s]) => (selection.start.line === pos.line && selection.start.character >= pos.character ? s : 0)).reduce((a, b) => a + b, 0);
 
     if (selection.isEmpty) {
       // No selected text
       if (startPattern !== "~~" && getContext(editor, cursorPos, startPattern) === `${startPattern}text|${endPattern}`) {
         // `**text|**` to `**text**|`
-        let newCursorPos = cursorPos.with({ character: cursorPos.character + shift + endPattern.length });
+        let newCursorPos = cursorPos.with({ character: cursorPos.character + shift + endPattern!.length });
         newSelections[i] = new Selection(newCursorPos, newCursorPos);
         return;
       } else if (getContext(editor, cursorPos, startPattern) === `${startPattern}|${endPattern}`) {
         // `**|**` to `|`
         let start = cursorPos.with({ character: cursorPos.character - startPattern.length });
-        let end = cursorPos.with({ character: cursorPos.character + endPattern.length });
+        let end = cursorPos.with({ character: cursorPos.character + endPattern!.length });
         wrapRange(editor, batchEdit, shifts, newSelections, i, shift, cursorPos, new Range(start, end), false, startPattern);
       } else {
         // Select word under cursor
         let wordRange = editor.document.getWordRangeAtPosition(cursorPos);
-        if (wordRange == undefined) {
+        if (wordRange === undefined) {
           wordRange = selection;
         }
         // One special case: toggle strikethrough in task list
         const currentTextLine = editor.document.lineAt(cursorPos.line);
         if (startPattern === "~~" && /^\s*[\*\+\-] (\[[ x]\] )? */g.test(currentTextLine.text)) {
-          wordRange = currentTextLine.range.with(new Position(cursorPos.line, currentTextLine.text.match(/^\s*[\*\+\-] (\[[ x]\] )? */g)[0].length));
+          wordRange = currentTextLine.range.with(new Position(cursorPos.line, currentTextLine.text.match(/^\s*[\*\+\-] (\[[ x]\] )? */g)![0].length));
         }
         wrapRange(editor, batchEdit, shifts, newSelections, i, shift, cursorPos, wordRange, false, startPattern);
       }
@@ -363,7 +339,7 @@ function styleByWrapping(startPattern, endPattern?) {
  * @param endPtn
  */
 function wrapRange(editor: TextEditor, wsEdit: WorkspaceEdit, shifts: [Position, number][], newSelections: Selection[], i: number, shift: number, cursor: Position, range: Range, isSelected: boolean, startPtn: string, endPtn?: string) {
-  if (endPtn == undefined) {
+  if (endPtn === undefined) {
     endPtn = startPtn;
   }
 
@@ -383,7 +359,7 @@ function wrapRange(editor: TextEditor, wsEdit: WorkspaceEdit, shifts: [Position,
     if (!isSelected) {
       if (!range.isEmpty) {
         // means quick styling
-        if (cursor.character == range.end.character) {
+        if (cursor.character === range.end.character) {
           newCursorPos = cursor.with({ character: cursor.character + shift - ptnLength });
         } else {
           newCursorPos = cursor.with({ character: cursor.character + shift - startPtn.length });
@@ -406,7 +382,7 @@ function wrapRange(editor: TextEditor, wsEdit: WorkspaceEdit, shifts: [Position,
     if (!isSelected) {
       if (!range.isEmpty) {
         // means quick styling
-        if (cursor.character == range.end.character) {
+        if (cursor.character === range.end.character) {
           newCursorPos = cursor.with({ character: cursor.character + shift + ptnLength });
         } else {
           newCursorPos = cursor.with({ character: cursor.character + shift + startPtn.length });
@@ -424,15 +400,15 @@ function wrapRange(editor: TextEditor, wsEdit: WorkspaceEdit, shifts: [Position,
   newSelections[i] = newSelection;
 }
 
-function isWrapped(text, startPattern, endPattern?): boolean {
-  if (endPattern == undefined) {
+function isWrapped(text: string, startPattern: string, endPattern?: string): boolean {
+  if (endPattern === undefined) {
     endPattern = startPattern;
   }
   return text.startsWith(startPattern) && text.endsWith(endPattern);
 }
 
-function getContext(editor, cursorPos, startPattern, endPattern?): string {
-  if (endPattern == undefined) {
+function getContext(editor: TextEditor, cursorPos: Position, startPattern: string, endPattern?: string): string {
+  if (endPattern === undefined) {
     endPattern = startPattern;
   }
 
@@ -446,8 +422,8 @@ function getContext(editor, cursorPos, startPattern, endPattern?): string {
   let leftText = editor.document.getText(new Range(cursorPos.line, startPositionCharacter, cursorPos.line, cursorPos.character));
   let rightText = editor.document.getText(new Range(cursorPos.line, cursorPos.character, cursorPos.line, endPositionCharacter));
 
-  if (rightText == endPattern) {
-    if (leftText == startPattern) {
+  if (rightText === endPattern) {
+    if (leftText === startPattern) {
       return `${startPattern}|${endPattern}`;
     } else {
       return `${startPattern}text|${endPattern}`;
