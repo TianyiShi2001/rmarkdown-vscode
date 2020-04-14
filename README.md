@@ -19,6 +19,7 @@ Additionally, it aims to provide some helper functions for Bookdown and Blogdown
     - [Chunks](#chunks)
 - [Blogdown-Specific Features](#blogdown-specific-features)
   - [New Post](#new-post)
+  - [Serve Site](#serve-site)
 - [Other Markdown Features](#other-markdown-features)
   - [Syntax Highlighting](#syntax-highlighting)
   - [Keyboard Shortcuts](#keyboard-shortcuts-1)
@@ -76,14 +77,23 @@ Use `Ctrl/Cmd+Shift+K` to knit the document with options specified in the YAML h
 
 # Blogdown-Specific Features
 
+Before you can use blogdown-specific features, you need to first open the directory of your **blogdown** project.
+
+<!-- that contains at least an `archetype/` directory with at least one archetype file, and an `content/` directory with at least one subdirectory. -->
+
 ## New Post
 
-1. In VS Code, open a **blogdown** project that contains at least an `archetype/` directory with at least one archetype file, and an `content/` directory with at least one subdirectory.
-2. In the command palette (`Ctrl/Cmd+Shift+P`), search for `new post`
-3. Execute `Blogdown: New Post`, then fill out basic information (title, author, category, archetype)
-4. You are redirected to your new post!
+1. In the command palette (`Ctrl/Cmd+Shift+P`), search for `new post`
+2. Execute `Blogdown: New Post`, then fill out basic information (title, author, category, archetype)
+3. You are redirected to your new post!
 
 ![blogdown new post demo](images/demo/blogdown/newpost.gif)
+
+## Serve Site
+
+1. In the command palette (`Ctrl/Cmd+Shift+P`), search for `serve site`
+2. Execute `Blogdown: Serve Site`
+3. ~~You are redirected to your new site (not implemented yet)!~~
 
 # Other Markdown Features
 
@@ -109,7 +119,6 @@ Mostly adapted from [yzhang-gh/vscode-markdown](https://github.com/yzhang-gh/vsc
   - citation autocompletion
 - bookdown support
 - blogdown support
-  - new post snippet (c.f. psql)
 
 # Change Log
 

@@ -4,6 +4,7 @@ import * as vscode from "vscode";
 export abstract class BaseCommand {
   subextension: string | undefined;
   constructor(context: vscode.ExtensionContext) {
+    console.log("hello from basecommand");
     this.init();
     let fullCommandName = "rmarkdown_vscode.";
     let commandName = this.constructor.name.replace(/Command$/, "");
@@ -12,6 +13,7 @@ export abstract class BaseCommand {
     }
     fullCommandName += commandName;
     let disposable = vscode.commands.registerCommand(fullCommandName, this.run, this);
+    console.log("hello from basecommand");
     console.log("pushing: ", fullCommandName);
     context.subscriptions.push(disposable);
   }

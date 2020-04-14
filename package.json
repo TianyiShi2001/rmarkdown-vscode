@@ -1,5 +1,5 @@
 {
-  "name": "rmarkdown-vscode",
+  "name": "rmarkdown",
   "publisher": "TianyiShi",
   "author": {
     "name": "Tianyi Shi"
@@ -22,7 +22,8 @@
   ],
   "activationEvents": [
     "onLanguage:rmarkdown",
-    "onCommand:rmarkdown_vscode.blogdown.newPost"
+    "onCommand:rmarkdown_vscode.blogdown.newPost",
+    "onCommand:rmarkdown_vscode.blogdown.serveSite"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -99,6 +100,10 @@
       {
         "command": "rmarkdown_vscode.blogdown.newPost",
         "title": "Blogdown: New Post"
+      },
+      {
+        "command": "rmarkdown_vscode.blogdown.serveSite",
+        "title": "Blogdown: Serve Site"
       }
     ],
     "grammars": [
@@ -176,6 +181,7 @@
     "vscode-test": "^1.3.0"
   },
   "dependencies": {
+    "r-helper": "0.0.4",
     "rmarkdown": "0.0.3"
   }
 }
