@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/TianyiShi2001/rmarkdown-vscode.git"
   },
-  "version": "0.0.6",
+  "version": "0.0.7",
   "engines": {
     "vscode": "^1.44.0"
   },
@@ -57,7 +57,7 @@
         }
       },
       {
-        "command": "rmarkdown_vscode.knit",
+        "command": "rmarkdown_vscode.rmarkdown-core.Knit",
         "key": "ctrl+shift+k",
         "mac": "cmd+shift+k",
         "when": "editorTextFocus"
@@ -104,6 +104,19 @@
       {
         "command": "rmarkdown_vscode.blogdown.NewPost",
         "title": "Blogdown: New Post"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "Blogdown",
+        "properties": {
+          "rmarkdown_vscode.blogdown.author": {
+            "type": "string",
+            "default": "",
+            "description": "Default blogdown author",
+            "scope": "window"
+          }
+        }
       }
     ],
     "grammars": [

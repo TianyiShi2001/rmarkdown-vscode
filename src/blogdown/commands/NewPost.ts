@@ -20,7 +20,8 @@ export class NewPost extends BaseCommand {
   readonly TotalSteps: number = 4;
 
   async run() {
-    const state = { projectDir: vscode.workspace.workspaceFolders![0].uri.path } as Partial<NewPostOptions>;
+    const defaultAuthor = vscode.workspace.getConfiguration().get("rmarkdown_vscode.blogdown.author");
+    const state = { projectDir: vscode.workspace.workspaceFolders![0].uri.path, author: defaultAuthor } as Partial<NewPostOptions>;
     if (!(await MultiStepInput.run((input) => this.setTitle(input, state)))) {
       // command cancelled
       return;

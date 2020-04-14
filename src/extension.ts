@@ -16,12 +16,6 @@ export function activate(context: vscode.ExtensionContext) {
 
   loadCommands(context);
 
-  //let rmd = new Rmarkdown();
-  // context.subscriptions.push(
-  //   vscode.commands.registerCommand("rmarkdown_vscode.knit", () => {
-  //     rmd.knit();
-  //   })
-  // );
   vscode.languages.setLanguageConfiguration("rmarkdown", {
     wordPattern: /(-?\d*\.\d\w*)|([^\!\@\#\%\^\&\(\)\-\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\?\s\，\。\《\》\？\；\：\‘\“\’\”\（\）\【\】\、]+)/g,
   });
