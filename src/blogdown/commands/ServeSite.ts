@@ -1,18 +1,14 @@
 //// @ts-nocheck
 import { Rcall, Rscript } from "r-helper";
 import * as vscode from "vscode";
-import { MultiStepInput, InputFlowAction } from "../common/MultistepInput";
-import { BaseCommand } from "../common/BaseCommand";
-import { promises as fsPromises, readFileSync, writeFileSync } from "fs";
-import { join } from "path";
-import { slugify } from "../utils/slugify";
-import { verbatimOutput } from "../utils/verbatimOutput";
+import { BaseCommand } from "../../common/BaseCommand";
+import { verbatimOutput } from "../../utils/verbatimOutput";
 import { spawn } from "child_process";
 
-export class serveSiteCommand extends BaseCommand {
+// __title__ = "Blogdown: Serve Site";
+export class ServeSite extends BaseCommand {
   private _outputChannel: vscode.OutputChannel | undefined;
   init() {
-    this.subextension = "blogdown";
     this._outputChannel = vscode.window.createOutputChannel("Blogdown");
   }
   async run() {

@@ -94,16 +94,16 @@
     ],
     "commands": [
       {
-        "command": "rmarkdown_vscode.knit",
-        "title": "Knit"
+        "command": "rmarkdown_vscode.rmarkdown-core.Knit",
+        "title": "Knit to All Formats"
       },
       {
-        "command": "rmarkdown_vscode.blogdown.newPost",
-        "title": "Blogdown: New Post"
-      },
-      {
-        "command": "rmarkdown_vscode.blogdown.serveSite",
+        "command": "rmarkdown_vscode.blogdown.ServeSite",
         "title": "Blogdown: Serve Site"
+      },
+      {
+        "command": "rmarkdown_vscode.blogdown.NewPost",
+        "title": "Blogdown: New Post"
       }
     ],
     "grammars": [
@@ -181,6 +181,7 @@
     "vscode-test": "^1.3.0"
   },
   "dependencies": {
+    "chalk": "^4.0.0",
     "r-helper": "0.0.4",
     "rmarkdown": "0.0.3"
   }

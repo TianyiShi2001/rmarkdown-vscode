@@ -1,6 +1,7 @@
 import { ChildProcessWithoutNullStreams } from "child_process";
 
 import { OutputChannel } from "vscode";
+import * as chalk from "chalk";
 
 export function verbatimOutput(p: ChildProcessWithoutNullStreams, outputChannel: OutputChannel): void {
   outputChannel.show();
@@ -8,6 +9,6 @@ export function verbatimOutput(p: ChildProcessWithoutNullStreams, outputChannel:
     outputChannel.append(data.toString());
   });
   p.stderr.on("data", (data) => {
-    outputChannel.append(data.toString());
+    outputChannel.append(chalk.red(data.toString()));
   });
 }

@@ -1,4 +1,4 @@
-import { isFileTooLarge, isInFencedCodeBlock, isRmarkdownEditor, mathEnvCheck } from "./utils";
+import { isFileTooLarge, isInFencedCodeBlock, isRmarkdownEditor, mathEnvCheck } from "../utils";
 import { ExtensionContext, Position, Range, TextEditor, window, workspace, TextEditorDecorationType } from "vscode";
 
 let decorTypes: { [decorTypeName: string]: TextEditorDecorationType } = {

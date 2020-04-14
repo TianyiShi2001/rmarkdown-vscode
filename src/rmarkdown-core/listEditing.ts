@@ -1,7 +1,7 @@
 "use strict";
 
 import { commands, ExtensionContext, Position, Range, Selection, TextEditor, window, workspace, WorkspaceEdit } from "vscode";
-import { isInFencedCodeBlock, mathEnvCheck } from "./utils";
+import { isInFencedCodeBlock, mathEnvCheck } from "../utils";
 
 export function activate(context: ExtensionContext) {
   context.subscriptions.push(

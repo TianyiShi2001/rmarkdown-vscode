@@ -1,12 +1,12 @@
 // @ts-nocheck
 import * as vscode from "vscode";
-import { MultiStepInput, InputFlowAction } from "../common/MultistepInput";
-import { BaseCommand } from "../common/BaseCommand";
+import { MultiStepInput } from "../../common";
+import { BaseCommand } from "../../common/BaseCommand";
 import { promises as fsPromises, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
-import { slugify } from "../utils/slugify";
+import { slugify } from "../../utils/slugify";
 
-const { readdir, writeFile } = fsPromises;
+const { readdir } = fsPromises;
 
 // const extOptions = [
 //   { label: "Rmd", ext: ".Rmd" },
@@ -15,13 +15,9 @@ const { readdir, writeFile } = fsPromises;
 
 // always Rmd, always today
 
-export class newPostCommand extends BaseCommand {
-  readonly TITLE: string = "Blogdown: New Post";
+// __title__ = "Blogdown: New Post";
+export class NewPost extends BaseCommand {
   readonly TotalSteps: number = 4;
-
-  init() {
-    this.subextension = "blogdown";
-  }
 
   async run() {
     const state = { projectDir: vscode.workspace.workspaceFolders![0].uri.path } as Partial<NewPostOptions>;
@@ -111,7 +107,7 @@ interface CategoryPickItem extends vscode.QuickPickItem {
 
 async function getCategories(projectDir: string): Promise<CategoryPickItem[]> {
   const categoriesParentDir = join(projectDir, "content");
-  const categories = await (await readdir(categoriesParentDir, { withFileTypes: true })).filter((p) => p.isDirectory).map((p) => p.name);
+  const categories = await (await readdir(categoriesParentDir, { withFileTypes: true })).filter((p) => p.isDirectory()).map((p) => p.name);
   return Array.from(categories, (cat) => {
     return { label: cat, fullPath: join(categoriesParentDir, cat) };
   });
@@ -123,7 +119,7 @@ interface ArchetypePickItem extends vscode.QuickPickItem {
 
 async function getArchetypes(projectDir: string): Promise<ArchetypePickItem[]> {
   const archetypesDir = join(projectDir, "archetypes");
-  const archetypes = await (await readdir(archetypesDir, { withFileTypes: true })).filter((p) => p.isFile && p.name.slice(p.name.length - 2) === "md").map((p) => p.name);
+  const archetypes = await (await readdir(archetypesDir, { withFileTypes: true })).filter((p) => p.isFile() && p.name.slice(p.name.length - 2) === "md").map((p) => p.name);
   return Array.from(archetypes, (arc) => {
     return { label: arc, fullPath: join(archetypesDir, arc) };
   });
