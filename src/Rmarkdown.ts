@@ -1,7 +1,7 @@
 import { basename, dirname } from "path";
 import * as vscode from "vscode";
-import { spawn } from "child_process";
-//import { render, renderSync } from "rmarkdown";
+// import { spawn } from "child_process";
+import { render } from "rmarkdown";
 
 export class Rmarkdown {
   private _outputChannel: vscode.OutputChannel;
@@ -14,9 +14,10 @@ export class Rmarkdown {
   public async knit() {
     this._initialize();
     this._outputChannel.show();
-    const command = `Rscript -e 'rmarkdown::render("${this._filename}", "all")'`;
-    this._outputChannel.appendLine("[R Markdown] " + command);
-    let p = spawn(command, [], { cwd: this._dirname, shell: true });
+    // const command = `Rscript -e 'rmarkdown::render("${this._filename}", "all")'`;
+    // this._outputChannel.appendLine("[R Markdown] " + command);
+    // let p = spawn(command, [], { cwd: this._dirname, shell: true });
+    let p = render(this._fullpath);
     p.stdout.on("data", (data) => {
       this._outputChannel.append(data.toString());
     });

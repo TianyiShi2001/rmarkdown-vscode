@@ -134,8 +134,15 @@ function simpleNewPostGenerator(src: string, dst: string, options: NewPostOption
   if (archetypeLines[0] !== "---") {
     throw Error("Archetypes files must have YAML frontmatter");
   }
+  let n = 0; // number of '---'s
   let content = archetypeLines
     .map((line) => {
+      if (n === 2) {
+        return line;
+      } else if (line.slice(0, 3) === "---") {
+        n++;
+        return line;
+      }
       let m = line.match(/^[a-z]+/);
       if (m !== null) {
         switch (m[0]) {

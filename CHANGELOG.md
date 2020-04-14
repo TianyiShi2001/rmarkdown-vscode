@@ -31,3 +31,9 @@ All notable changes to the "rmarkdown" extension will be documented in this file
 ### Added
 
 - Blogdown New Post Helper (command palette `New Post`)
+
+## [0.0.6] - 2020-04-14
+
+### Changed
+
+- Slugify function preserves CJK characters
