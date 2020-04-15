@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/TianyiShi2001/rmarkdown-vscode.git"
   },
-  "version": "0.0.7",
+  "version": "0.0.8",
   "engines": {
     "vscode": "^1.44.0"
   },
@@ -43,7 +43,7 @@
     "snippets": [
       {
         "language": "rmarkdown",
-        "path": "./snippets.json"
+        "path": "./snippets/snippets.json"
       }
     ],
     "keybindings": [
@@ -104,6 +104,10 @@
       {
         "command": "rmarkdown_vscode.blogdown.NewPost",
         "title": "Blogdown: New Post"
+      },
+      {
+        "command": "rmarkdown_vscode.bookdown.serveBook",
+        "title": "Bookdown: Serve Book"
       }
     ],
     "configuration": [

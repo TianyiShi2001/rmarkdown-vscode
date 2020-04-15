@@ -17,9 +17,12 @@ Additionally, it aims to provide some helper functions for Bookdown and Blogdown
   - [Snippets](#snippets)
     - [Cross-referencing](#cross-referencing)
     - [Chunks](#chunks)
+- [Bookdown-Specific Features](#bookdown-specific-features)
+  - [Serve Book](#serve-book)
+  - [Serve Site](#serve-site)
 - [Blogdown-Specific Features](#blogdown-specific-features)
   - [New Post](#new-post)
-  - [Serve Site](#serve-site)
+  - [Serve Site](#serve-site-1)
 - [Other Markdown Features](#other-markdown-features)
   - [Syntax Highlighting](#syntax-highlighting)
   - [Keyboard Shortcuts](#keyboard-shortcuts-1)
@@ -28,7 +31,7 @@ Additionally, it aims to provide some helper functions for Bookdown and Blogdown
 
 # Video Demos
 
-_If you prefer reading text, jump to [RMarkdown-Specific Features from here](#user-content-rmarkdown-specific-features)._
+_If you prefer reading text, jump to [RMarkdown-Specific Features](#user-content-rmarkdown-specific-features), [Blogdown-Specific Features](#blogdown-specific-features), [Bookdown-Specific Features](#bookdown-specific-features), or [Other Markdown Features](#other-markdown-features)._
 
 ## Code Chunk
 
@@ -75,9 +78,22 @@ Use `Ctrl/Cmd+Shift+K` to knit the document with options specified in the YAML h
 `\code`: insert a code chunk
 `\fig`: insert a chunk using `knitr::include_graphics()` to include an image; hit tabs to conviniently fill out label, `fig.cap` and `out.width`.
 
+# Bookdown-Specific Features
+
+Before you can use blogdown-specific features, you need to first open the directory of your **bookdown** project. The easiest way is to use RStudio's 'New Project'.
+
+## Serve Book
+
+## Serve Site
+
+1. In the command palette (`Ctrl/Cmd+Shift+P`), search for `serve book`
+2. Execute `Blogdown: Serve Site`
+3. Click the link in the output to view your book
+4. ~~You are redirected to your new site (not implemented yet)!~~
+
 # Blogdown-Specific Features
 
-Before you can use blogdown-specific features, you need to first open the directory of your **blogdown** project.
+Before you can use blogdown-specific features, you need to first open the directory of your **blogdown** project. The easiest way is to use RStudio's 'New Project'.
 
 <!-- that contains at least an `archetype/` directory with at least one archetype file, and an `content/` directory with at least one subdirectory. -->
 
@@ -94,7 +110,8 @@ Before you can use blogdown-specific features, you need to first open the direct
 
 1. In the command palette (`Ctrl/Cmd+Shift+P`), search for `serve site`
 2. Execute `Blogdown: Serve Site`
-3. ~~You are redirected to your new site (not implemented yet)!~~
+3. Click the link in the output to view your blog
+4. ~~You are redirected to your new site (not implemented yet)!~~
 
 # Other Markdown Features
 

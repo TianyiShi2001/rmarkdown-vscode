@@ -47,3 +47,9 @@ All notable changes to the "rmarkdown" extension will be documented in this file
 ### Added
 
 - Blogdown: Default author setting
+
+## 0.0.8 - 2020-04-16
+
+### Added
+
+- 'Bookdown: Serve Book' command
