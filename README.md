@@ -19,10 +19,9 @@ Additionally, it aims to provide some helper functions for Bookdown and Blogdown
     - [Chunks](#chunks)
 - [Bookdown-Specific Features](#bookdown-specific-features)
   - [Serve Book](#serve-book)
-  - [Serve Site](#serve-site)
 - [Blogdown-Specific Features](#blogdown-specific-features)
   - [New Post](#new-post)
-  - [Serve Site](#serve-site-1)
+  - [Serve Site](#serve-site)
 - [Other Markdown Features](#other-markdown-features)
   - [Syntax Highlighting](#syntax-highlighting)
   - [Keyboard Shortcuts](#keyboard-shortcuts-1)
@@ -83,8 +82,6 @@ Use `Ctrl/Cmd+Shift+K` to knit the document with options specified in the YAML h
 Before you can use blogdown-specific features, you need to first open the directory of your **bookdown** project. The easiest way is to use RStudio's 'New Project'.
 
 ## Serve Book
-
-## Serve Site
 
 1. In the command palette (`Ctrl/Cmd+Shift+P`), search for `serve book`
 2. Execute `Blogdown: Serve Site`
