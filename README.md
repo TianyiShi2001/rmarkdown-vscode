@@ -85,7 +85,7 @@ Before you can use blogdown-specific features, you need to first open the direct
 
 1. In the command palette (`Ctrl/Cmd+Shift+P`), search for `new post`
 2. Execute `Blogdown: New Post`, then fill out basic information (title, author, category, archetype)
-  - You can set the default author in the settings `Ctrl/Cmd + ,`
+   - You can set the default author in the settings `Ctrl/Cmd + ,`
 3. You are redirected to your new post!
 
 ![blogdown new post demo](images/demo/blogdown/newpost.gif)

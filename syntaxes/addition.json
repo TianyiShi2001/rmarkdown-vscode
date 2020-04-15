@@ -1,0 +1,25 @@
+{
+  "include-graphics": {
+    "captures": {
+      "1": {
+        "name": "punctuation.definition.link.markdown"
+      },
+      "2": {
+        "name": "punctuation.definition.link.markdown"
+      },
+      "3": {
+        "name": "punctuation.definition.link.markdown"
+      },
+      "4": {
+        "name": "markup.underline.link.image.markdown"
+      },
+      "5": {
+        "name": "punctuation.definition.link.markdown"
+      },
+      "6": { "name": "punctuation.definition.link.markdown" }
+    },
+    "match": "(?x)  (include_graphics)(\\() (?P<quote>[\"'])  ([^)]+) (\\g<quote>)  (\\))",
+    "name": "meta.image.inline.markdown",
+    "extends": "image-inline"
+  }
+}
