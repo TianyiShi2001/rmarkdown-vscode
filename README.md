@@ -24,6 +24,7 @@ Additionally, it aims to provide some helper functions for Bookdown and Blogdown
   - [Serve Site](#serve-site)
 - [Other Markdown Features](#other-markdown-features)
   - [Syntax Highlighting](#syntax-highlighting)
+  - [Table Formatter](#table-formatter)
   - [Keyboard Shortcuts](#keyboard-shortcuts-1)
 - [TODO](#todo)
 - [Change Log](#change-log)
@@ -115,6 +116,10 @@ Before you can use blogdown-specific features, you need to first open the direct
 ## Syntax Highlighting
 
 Mostly adapted from [microsoft/vscode](https://github.com/microsoft/vscode/tree/master/extensions/markdown-language-features) and [yzhang-gh/vscode-markdown](https://github.com/yzhang-gh/vscode-markdown).
+
+## Table Formatter
+
+![table formatter demo](./images/demo/table-format.gif)
 
 ## Keyboard Shortcuts
 

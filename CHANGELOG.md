@@ -53,3 +53,9 @@ All notable changes to the "rmarkdown" extension will be documented in this file
 ### Added
 
 - 'Bookdown: Serve Book' command
+
+## 0.0.9 - 2020-04-17
+
+### Added
+
+- Table formatter
