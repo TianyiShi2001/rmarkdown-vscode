@@ -58,7 +58,7 @@ let regexDecorTypeMappingPlainTheme: RegexDecorTypeMapping = {
 
 export function activate(context: ExtensionContext) {
   // workspace.onDidChangeConfiguration((event) => {
-  //   if (event.affectsConfiguration("rmarkdown_vscode.syntax.decorations")) {
+  //   if (event.affectsConfiguration("rmarkdown.syntax.decorations")) {
   //     window.showInformationMessage("Please reload VSCode to make setting `syntax.decorations` take effect.");
   //   }
   // });

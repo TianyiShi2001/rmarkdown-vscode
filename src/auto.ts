@@ -5,22 +5,22 @@ import { ServeSite } from "./blogdown/commands/ServeSite";
 import { NewPost } from "./blogdown/commands/NewPost";
 export function loadCommands(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand("rmarkdown_vscode.rmarkdown-core.Knit", () => {
+    vscode.commands.registerCommand("rmarkdown.rmarkdown-core.Knit", () => {
       new Knit().run();
     })
   );
   context.subscriptions.push(
-    vscode.commands.registerCommand("rmarkdown_vscode.bookdown.serveBook", () => {
+    vscode.commands.registerCommand("rmarkdown.bookdown.serveBook", () => {
       new ServeBook().run();
     })
   );
   context.subscriptions.push(
-    vscode.commands.registerCommand("rmarkdown_vscode.blogdown.ServeSite", () => {
+    vscode.commands.registerCommand("rmarkdown.blogdown.ServeSite", () => {
       new ServeSite().run();
     })
   );
   context.subscriptions.push(
-    vscode.commands.registerCommand("rmarkdown_vscode.blogdown.NewPost", () => {
+    vscode.commands.registerCommand("rmarkdown.blogdown.NewPost", () => {
       new NewPost().run();
     })
   );

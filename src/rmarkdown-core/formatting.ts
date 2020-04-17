@@ -5,13 +5,13 @@ import { fixMarker } from "./listEditing";
 
 export function activate(context: ExtensionContext) {
   context.subscriptions.push(
-    commands.registerCommand("rmarkdown_vscode.editing.toggleBold", toggleBold),
-    commands.registerCommand("rmarkdown_vscode.editing.toggleItalic", toggleItalic),
-    commands.registerCommand("rmarkdown_vscode.editing.toggleStrikethrough", toggleStrikethrough),
-    commands.registerCommand("rmarkdown_vscode.editing.toggleHeadingUp", toggleHeadingUp),
-    commands.registerCommand("rmarkdown_vscode.editing.toggleHeadingDown", toggleHeadingDown),
-    commands.registerCommand("rmarkdown_vscode.editing.toggleList", toggleList),
-    commands.registerCommand("rmarkdown_vscode.editing.paste", paste)
+    commands.registerCommand("rmarkdown.editing.toggleBold", toggleBold),
+    commands.registerCommand("rmarkdown.editing.toggleItalic", toggleItalic),
+    commands.registerCommand("rmarkdown.editing.toggleStrikethrough", toggleStrikethrough),
+    commands.registerCommand("rmarkdown.editing.toggleHeadingUp", toggleHeadingUp),
+    commands.registerCommand("rmarkdown.editing.toggleHeadingDown", toggleHeadingDown),
+    commands.registerCommand("rmarkdown.editing.toggleList", toggleList),
+    commands.registerCommand("rmarkdown.editing.paste", paste)
   );
 }
 

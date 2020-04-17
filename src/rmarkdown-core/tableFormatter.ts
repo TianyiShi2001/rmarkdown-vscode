@@ -12,7 +12,7 @@ export function activate(_: ExtensionContext) {
   let registration: Disposable | undefined;
 
   function registerFormatterIfEnabled() {
-    const isEnabled = true; //workspace.getConfiguration().get("rmarkdown_vscode.rmarkdown-core.tableFormatter.enabled", true);
+    const isEnabled = true; //workspace.getConfiguration().get("rmarkdown.rmarkdown-core.tableFormatter.enabled", true);
     if (isEnabled && !registration) {
       registration = languages.registerDocumentFormattingEditProvider(rmdDocSelector, new RmarkdownDocumentFormatter());
     } else if (!isEnabled && registration) {

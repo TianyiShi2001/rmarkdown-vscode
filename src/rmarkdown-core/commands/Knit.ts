@@ -1,7 +1,7 @@
 import { BaseCommand } from "../../common";
 import { verbatimOutput } from "../../utils";
 import * as vscode from "vscode";
-import { render } from "rmarkdown";
+import { render } from "rmarkdown-helper";
 
 // __title__ = "Knit to All Formats";
 export class Knit extends BaseCommand {

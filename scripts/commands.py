@@ -6,7 +6,7 @@ import json
 
 SUBPACKAGES = ("rmarkdown-core", "bookdown", "blogdown")
 TITLE_PATTERN = re.compile(r"""__title__ = (["'`])([^\1]+?)\1""")
-PACKAGE_NAME = "rmarkdown_vscode"
+PACKAGE_NAME = "rmd"
 
 
 def main():
@@ -31,7 +31,10 @@ def main():
 
             x = next(c for c in commands if c["command"] == command_name_full)
             if x["title"] != TITLE:
-                commands[commands.index(x)] = {"command": command_name_full,"title": TITLE}
+                commands[commands.index(x)] = {
+                    "command": command_name_full,
+                    "title": TITLE,
+                }
 
             import_statements += f"import {{ {command_name} }} from './{command_ts.with_suffix('').relative_to(src_dir_path)}';"
             load_function += make_subscription_push(command_name_full, command_name)

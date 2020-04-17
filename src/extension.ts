@@ -1,5 +1,4 @@
 import * as vscode from "vscode";
-import { Rmarkdown } from "./rmarkdown";
 import * as decorations from "./rmarkdown-core/decorations";
 import * as listEditing from "./rmarkdown-core/listEditing";
 import * as formatting from "./rmarkdown-core/formatting";

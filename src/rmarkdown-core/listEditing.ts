@@ -5,25 +5,25 @@ import { isInFencedCodeBlock, mathEnvCheck } from "../utils";
 
 export function activate(context: ExtensionContext) {
   context.subscriptions.push(
-    commands.registerCommand("rmarkdown_vscode.onEnterKey", onEnterKey),
-    commands.registerCommand("rmarkdown_vscode.onCtrlEnterKey", () => {
+    commands.registerCommand("rmarkdown.onEnterKey", onEnterKey),
+    commands.registerCommand("rmarkdown.onCtrlEnterKey", () => {
       return onEnterKey("ctrl");
     }),
-    commands.registerCommand("rmarkdown_vscode.onShiftEnterKey", () => {
+    commands.registerCommand("rmarkdown.onShiftEnterKey", () => {
       return onEnterKey("shift");
     }),
-    commands.registerCommand("rmarkdown_vscode.onTabKey", onTabKey),
-    commands.registerCommand("rmarkdown_vscode.onShiftTabKey", () => {
+    commands.registerCommand("rmarkdown.onTabKey", onTabKey),
+    commands.registerCommand("rmarkdown.onShiftTabKey", () => {
       return onTabKey("shift");
     }),
-    commands.registerCommand("rmarkdown_vscode.onBackspaceKey", onBackspaceKey),
-    commands.registerCommand("rmarkdown_vscode.checkTaskList", checkTaskList),
-    commands.registerCommand("rmarkdown_vscode.onMoveLineDown", onMoveLineDown),
-    commands.registerCommand("rmarkdown_vscode.onMoveLineUp", onMoveLineUp),
-    commands.registerCommand("rmarkdown_vscode.onCopyLineDown", onCopyLineDown),
-    commands.registerCommand("rmarkdown_vscode.onCopyLineUp", onCopyLineUp),
-    commands.registerCommand("rmarkdown_vscode.onIndentLines", onIndentLines),
-    commands.registerCommand("rmarkdown_vscode.onOutdentLines", onOutdentLines)
+    commands.registerCommand("rmarkdown.onBackspaceKey", onBackspaceKey),
+    commands.registerCommand("rmarkdown.checkTaskList", checkTaskList),
+    commands.registerCommand("rmarkdown.onMoveLineDown", onMoveLineDown),
+    commands.registerCommand("rmarkdown.onMoveLineUp", onMoveLineUp),
+    commands.registerCommand("rmarkdown.onCopyLineDown", onCopyLineDown),
+    commands.registerCommand("rmarkdown.onCopyLineUp", onCopyLineUp),
+    commands.registerCommand("rmarkdown.onIndentLines", onIndentLines),
+    commands.registerCommand("rmarkdown.onOutdentLines", onOutdentLines)
   );
 }
 
@@ -91,7 +91,7 @@ function onEnterKey(modifiers?: string) {
       });
   } else if ((matches = /^(\s*)([0-9]+)([.)])( +)((\[[ x]\] +)?)/.exec(textBeforeCursor)) !== null) {
     // Ordered list
-    let config = workspace.getConfiguration("rmarkdown_vscode.orderedList").get<string>("marker");
+    let config = workspace.getConfiguration("rmarkdown.orderedList").get<string>("marker");
     let marker = "1";
     let leadingSpace = matches[1];
     let previousMarker = matches[2];
@@ -214,7 +214,7 @@ function indent(editor?: TextEditor) {
     editor = window.activeTextEditor!;
   }
 
-  if (workspace.getConfiguration("rmarkdown_vscode.list", editor.document.uri).get<string>("indentationSize") === "adaptive") {
+  if (workspace.getConfiguration("rmarkdown.list", editor.document.uri).get<string>("indentationSize") === "adaptive") {
     try {
       const selection = editor.selection;
       const indentationSize = tryDetermineIndentationSize(editor, selection.start.line, editor.document.lineAt(selection.start.line).firstNonWhitespaceCharacterIndex);
@@ -242,7 +242,7 @@ function outdent(editor?: TextEditor) {
     editor = window.activeTextEditor!;
   }
 
-  if (workspace.getConfiguration("rmarkdown_vscode.list", editor.document.uri).get<string>("indentationSize") === "adaptive") {
+  if (workspace.getConfiguration("rmarkdown.list", editor.document.uri).get<string>("indentationSize") === "adaptive") {
     try {
       const selection = editor.selection;
       const indentationSize = tryDetermineIndentationSize(editor, selection.start.line, editor.document.lineAt(selection.start.line).firstNonWhitespaceCharacterIndex);
@@ -340,10 +340,10 @@ function lookUpwardForMarker(editor: TextEditor, line: number, currentIndentatio
  * Fix ordered list marker *iteratively* starting from current line
  */
 export function fixMarker(line?: number): Thenable<void> | undefined {
-  if (!workspace.getConfiguration("rmarkdown_vscode.orderedList").get<boolean>("autoRenumber")) {
+  if (!workspace.getConfiguration("rmarkdown.orderedList").get<boolean>("autoRenumber")) {
     return;
   }
-  if (workspace.getConfiguration("rmarkdown_vscode.orderedList").get<string>("marker") === "one") {
+  if (workspace.getConfiguration("rmarkdown.orderedList").get<string>("marker") === "one") {
     return;
   }
 

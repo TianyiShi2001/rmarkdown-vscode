@@ -1,12 +1,17 @@
 # R Markdown All-in-One for VS Code
 
+### NOTE: This extension has only been tested on Mac. It has been reported to fail on Windows/Linux
+
 This extension provides a few snippets and key bindings for common tasks in `.Rmd` documents, such as inserting code chunks and including images using `knitr::include_graphics()`.
 
 Additionally, it aims to provide some helper functions for Bookdown and Blogdown.
 
+This project is at its very early stage of development. Contributions are welcome!
+
 # Table of Contents
 
 - [R Markdown All-in-One for VS Code](#r-markdown-all-in-one-for-vs-code)
+    - [NOTE: This extension has only been tested on Mac. It has been reported to fail on Windows/Linux](#note-this-extension-has-only-been-tested-on-mac-it-has-been-reported-to-fail-on-windowslinux)
 - [Table of Contents](#table-of-contents)
 - [Video Demos](#video-demos)
   - [Code Chunk](#code-chunk)

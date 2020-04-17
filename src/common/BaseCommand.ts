@@ -4,7 +4,7 @@ import * as vscode from "vscode";
 export abstract class BaseCommand {
   constructor() {
     this.init();
-    // let fullCommandName = "rmarkdown_vscode.";
+    // let fullCommandName = "rmarkdown.";
     // let commandName = this.constructor.name.replace(/Command$/, "");
     // if (subpackage !== undefined) {
     //   fullCommandName += subpackage + ".";
