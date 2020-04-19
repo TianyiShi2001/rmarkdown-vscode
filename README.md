@@ -1,9 +1,9 @@
 # R Markdown All-in-One for VS Code
 
-[![](https://vsmarketplacebadge.apphb.com/version/tianyishi.rmarkdown.svg)]()
+[![](https://vsmarketplacebadge.apphb.com/version/tianyishi.rmarkdown.svg)](https://marketplace.visualstudio.com/items?itemName=TianyiShi.rmarkdown)
 [![Number of Installs](https://vsmarketplacebadge.apphb.com/installs/tianyishi.rmarkdown.svg)](https://marketplace.visualstudio.com/items?itemName=TianyiShi.rmarkdown)
-[![](https://vsmarketplacebadge.apphb.com/dowloads/tianyishi.rmarkdown.svg)]()
-[![](https://vsmarketplacebadge.apphb.com/rating/tianyishi.rmarkdown.svg)]()
+[![](https://vsmarketplacebadge.apphb.com/dowloads/tianyishi.rmarkdown.svg)](https://marketplace.visualstudio.com/items?itemName=TianyiShi.rmarkdown)
+[![](https://vsmarketplacebadge.apphb.com/rating/tianyishi.rmarkdown.svg)](https://marketplace.visualstudio.com/items?itemName=TianyiShi.rmarkdown)
 [![Say thanks](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/ShiTianyi2001%40outlook.com)
 
 
