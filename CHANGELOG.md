@@ -60,6 +60,6 @@ All notable changes to the "rmarkdown" extension will be documented in this file
 
 - Table formatter
 
-## 0.0.12 2020-04-18
+## 0.0.14 2020-04-19
 
-Fixed bugs.
+Fix [Issue #1](https://github.com/TianyiShi2001/rmarkdown-vscode/issues/1)
