@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/TianyiShi2001/rmarkdown-vscode.git"
   },
-  "version": "0.0.14",
+  "version": "0.0.15",
   "engines": {
     "vscode": "^1.44.0"
   },

@@ -1,6 +1,11 @@
 # R Markdown All-in-One for VS Code
 
-### NOTE: This extension has only been tested on Mac. It has been reported to fail on Windows/Linux
+[![](https://vsmarketplacebadge.apphb.com/version/tianyishi.rmarkdown.svg)]()
+[![Number of Installs](https://vsmarketplacebadge.apphb.com/installs/tianyishi.rmarkdown.svg)](https://marketplace.visualstudio.com/items?itemName=TianyiShi.rmarkdown)
+[![](https://vsmarketplacebadge.apphb.com/dowloads/tianyishi.rmarkdown.svg)]()
+[![](https://vsmarketplacebadge.apphb.com/rating/tianyishi.rmarkdown.svg)]()
+[![Say thanks](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/ShiTianyi2001%40outlook.com)
+
 
 This extension provides a few snippets and key bindings for common tasks in `.Rmd` documents, such as inserting code chunks and including images using `knitr::include_graphics()`.
 
@@ -11,7 +16,6 @@ This project is at its very early stage of development. Contributions are welcom
 # Table of Contents
 
 - [R Markdown All-in-One for VS Code](#r-markdown-all-in-one-for-vs-code)
-    - [NOTE: This extension has only been tested on Mac. It has been reported to fail on Windows/Linux](#note-this-extension-has-only-been-tested-on-mac-it-has-been-reported-to-fail-on-windowslinux)
 - [Table of Contents](#table-of-contents)
 - [Video Demos](#video-demos)
   - [Code Chunk](#code-chunk)
