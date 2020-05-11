@@ -3,7 +3,7 @@
 [![](https://vsmarketplacebadge.apphb.com/version/tianyishi.rmarkdown.svg)](https://marketplace.visualstudio.com/items?itemName=TianyiShi.rmarkdown)
 [![Number of Installs](https://vsmarketplacebadge.apphb.com/installs/tianyishi.rmarkdown.svg)](https://marketplace.visualstudio.com/items?itemName=TianyiShi.rmarkdown)
 [![](https://vsmarketplacebadge.apphb.com/dowloads/tianyishi.rmarkdown.svg)](https://marketplace.visualstudio.com/items?itemName=TianyiShi.rmarkdown)
-[![](https://vsmarketplacebadge.apphb.com/rating/tianyishi.rmarkdown.svg)](https://marketplace.visualstudio.com/items?itemName=TianyiShi.rmarkdown)
+[![Ratings](https://vsmarketplacebadge.apphb.com/rating/tianyishi.rmarkdown.svg)](https://marketplace.visualstudio.com/items?itemName=TianyiShi.rmarkdown&ssr=false#review-details)
 [![Say thanks](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/ShiTianyi2001%40outlook.com)
 
 
@@ -146,8 +146,10 @@ Mostly adapted from [yzhang-gh/vscode-markdown](https://github.com/yzhang-gh/vsc
     preview HTML/PDF
   - insert tables (with labels and captions)
   - citation autocompletion
-- bookdown support
-- blogdown support
+  - run code?
+- bookdown
+- blogdown
+  - to be consistent with RStudio's plugin, 'new post' should produce `<date>-<slugified-title>.Rmd`?
 
 # Change Log
 
