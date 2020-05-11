@@ -7,7 +7,7 @@ from pathlib import Path
 
 TARGETS = ["common", "utils"]
 EXPORT_PATTERN = re.compile(
-    r"^export.+(?:function|const|let|class|type|interface) (\w+)", re.MULTILINE
+    r"^export.+?(?:function|const|let|class|type|interface) (\w+)", re.MULTILINE
 )
 
 from _dir import src_dir
