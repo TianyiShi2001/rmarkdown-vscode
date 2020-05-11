@@ -3,7 +3,7 @@ import * as vscode from "vscode";
 import { MultiStepInput } from "../../common";
 import { BaseCommand } from "../../common/BaseCommand";
 import { promises as fsPromises, readFileSync, writeFileSync } from "fs";
-import { join } from "path";
+import * as path from "path";
 import { slugify } from "../../utils/slugify";
 
 const { readdir } = fsPromises;
@@ -27,7 +27,7 @@ export class NewPost extends BaseCommand {
       return;
     }
     const slug = slugify(state.title!);
-    const newPostPath = join(state.category!, slug + ".Rmd");
+    const newPostPath = path.join(state.category!, `${new Date().toISOString().slice(0, 10)}-${slug}.Rmd`);
     simpleNewPostGenerator(state.archetype!, newPostPath, state as NewPostOptions);
     vscode.workspace.openTextDocument(newPostPath).then((document) => vscode.window.showTextDocument(document));
   }
@@ -107,10 +107,10 @@ interface CategoryPickItem extends vscode.QuickPickItem {
 }
 
 async function getCategories(projectDir: string): Promise<CategoryPickItem[]> {
-  const categoriesParentDir = join(projectDir, "content");
+  const categoriesParentDir = path.join(projectDir, "content");
   const categories = await (await readdir(categoriesParentDir, { withFileTypes: true })).filter((p) => p.isDirectory()).map((p) => p.name);
   return Array.from(categories, (cat) => {
-    return { label: cat, fullPath: join(categoriesParentDir, cat) };
+    return { label: cat, fullPath: path.join(categoriesParentDir, cat) };
   });
 }
 
@@ -119,7 +119,7 @@ interface ArchetypePickItem extends vscode.QuickPickItem {
 }
 
 async function getArchetypes(projectDir: string): Promise<ArchetypePickItem[]> {
-  const archetypesDir = join(projectDir, "archetypes");
+  const archetypesDir = path.join(projectDir, "archetypes");
   const archetypes = await (await readdir(archetypesDir, { withFileTypes: true })).filter((p) => p.isFile() && p.name.slice(p.name.length - 2) === "md").map((p) => p.name);
   return Array.from(archetypes, (arc) => {
     return { label: arc, fullPath: join(archetypesDir, arc) };
