@@ -147,6 +147,7 @@ Mostly adapted from [yzhang-gh/vscode-markdown](https://github.com/yzhang-gh/vsc
   - insert tables (with labels and captions)
   - citation autocompletion
   - run code?
+  - Navigation bar
 - bookdown
 - blogdown
   - to be consistent with RStudio's plugin, 'new post' should produce `<date>-<slugified-title>.Rmd`?
