@@ -155,3 +155,12 @@ Mostly adapted from [yzhang-gh/vscode-markdown](https://github.com/yzhang-gh/vsc
 # Change Log
 
 See [CHANGELOG.md](./CHANGELOG.md)
+
+# Required packages:
+
+(certain command may provide no response or give out errors when the packages are not installed)
+```
+rmarkdown
+bookdown
+servr
+```
